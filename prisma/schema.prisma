@@ -17,3 +17,41 @@ model CollectionRecord {
   @@id([collection, id])
   @@index([collection])
 }
+
+// Objectives and workflow support
+enum ObjectiveStatus {
+  DRAFT
+  ACTIVE
+  ON_HOLD
+  COMPLETED
+  CANCELLED
+}
+
+model Objective {
+  id          String   @id @default(uuid())
+  title       String
+  description String?  
+  ownerId     String?  
+  status      ObjectiveStatus @default(DRAFT)
+  priority    Int?     
+  startDate   DateTime?
+  targetDate  DateTime?
+  data        Json?    
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  events      ObjectiveEvent[] @relation("obj_events")
+  @@index([ownerId])
+}
+
+model ObjectiveEvent {
+  id          String   @id @default(uuid())
+  objectiveId String
+  type        String
+  actor       String?
+  payload     Json?
+  createdAt   DateTime @default(now())
+
+  objective   Objective @relation(fields: [objectiveId], references: [id], name: "obj_events")
+  @@index([objectiveId])
+}

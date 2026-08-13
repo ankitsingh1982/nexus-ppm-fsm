@@ -135,7 +135,7 @@ export function RecordModal({title, fields, initial, onCancel, onSave}){
 /* ================================================================ */
 export function CrudPanel({
   title, subtitle, accent, rows, columns, fields, idPrefix, 
-  onAdd, onUpdate, onDelete, extraHeader, defaultRecord, lockProjectId
+  onAdd, onUpdate, onDelete, extraHeader, defaultRecord, lockProjectId, onRowClick
 }){
   // 1. Core Hooks & States
   const [modal, setModal] = useState(null);
@@ -507,7 +507,7 @@ export function CrudPanel({
                 return (
                   <th 
                     key={c.key} 
-                    style={{ userSelect: 'none' }}
+                  style={{ userSelect: 'none', width: c.width || undefined }}
                   >
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px', justifyContent: 'space-between' }}>
                       <div 
@@ -560,16 +560,16 @@ export function CrudPanel({
                   
                   {/* Group Items */}
                   {groupItems.map(r => (
-                    <tr key={r.id}>
+                    <tr key={r.id} onClick={() => onRowClick ? onRowClick(r) : undefined} style={{ cursor: onRowClick ? 'pointer' : 'default' }}>
                       {visibleColumns.map(c => (
-                        <td key={c.key} className={c.strong ? 'cell-strong' : ''}>
+                                          <td key={c.key} className={c.strong ? 'cell-strong' : ''} style={{ width: c.width || undefined, maxWidth: c.width || undefined, overflow: c.width ? 'hidden' : undefined, textOverflow: c.width ? 'ellipsis' : undefined, whiteSpace: c.width ? 'nowrap' : 'normal' }}>
                           {c.render ? c.render(r) : (r[c.key] ?? <span className="cell-muted">—</span>)}
                         </td>
                       ))}
                       <td>
                         <div className="row-actions">
-                          <button className="btn btn-sm btn-icon" title="Edit" onClick={() => openEdit(r)}>✎</button>
-                          <button className="btn btn-sm btn-icon btn-danger" title="Delete" onClick={() => remove(r)}>🗑</button>
+                          <button className="btn btn-sm btn-icon" title="Edit" onClick={(e) => { e.stopPropagation(); openEdit(r); }}>✎</button>
+                          <button className="btn btn-sm btn-icon btn-danger" title="Delete" onClick={(e) => { e.stopPropagation(); remove(r); }}>🗑</button>
                         </div>
                       </td>
                     </tr>
@@ -579,16 +579,16 @@ export function CrudPanel({
             ) : (
               // Standard Flat Rows
               processedRows.map(r => (
-                <tr key={r.id}>
+                <tr key={r.id} onClick={() => onRowClick ? onRowClick(r) : undefined} style={{ cursor: onRowClick ? 'pointer' : 'default' }}>
                   {visibleColumns.map(c => (
-                    <td key={c.key} className={c.strong ? 'cell-strong' : ''}>
+                    <td key={c.key} className={c.strong ? 'cell-strong' : ''} style={{ width: c.width || undefined, maxWidth: c.width || undefined, overflow: c.width ? 'hidden' : undefined, textOverflow: c.width ? 'ellipsis' : undefined, whiteSpace: c.width ? 'nowrap' : 'normal' }}>
                       {c.render ? c.render(r) : (r[c.key] ?? <span className="cell-muted">—</span>)}
                     </td>
                   ))}
                   <td>
                     <div className="row-actions">
-                      <button className="btn btn-sm btn-icon" title="Edit" onClick={() => openEdit(r)}>✎</button>
-                      <button className="btn btn-sm btn-icon btn-danger" title="Delete" onClick={() => remove(r)}>🗑</button>
+                      <button className="btn btn-sm btn-icon" title="Edit" onClick={(e) => { e.stopPropagation(); openEdit(r); }}>✎</button>
+                      <button className="btn btn-sm btn-icon btn-danger" title="Delete" onClick={(e) => { e.stopPropagation(); remove(r); }}>🗑</button>
                     </div>
                   </td>
                 </tr>
