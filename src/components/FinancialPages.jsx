@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { doc, setDoc } from 'firebase/firestore';
-import { db } from '../firebase-config';
+import { api } from '../api';
 import { uid, money, pct, Badge, Toast, CrudPanel, FilterSelect } from '../seed';
 
 /* ================================================================ */
@@ -23,7 +22,7 @@ export function CostPlansPage({data, setData, projectFilter, setProjectFilter, o
     const budgetId = uid('BUD');
     const budget = {id:budgetId, projectId, name:`${proj?.name || projectId} — Budget`, totalAmount:total, approvedBy:'', approvedDate:'', status:'Draft', sourceNote:`Converted from ${lines.length} Plan of Record cost plan line(s).`};
     try {
-      await setDoc(doc(db, 'budgets', budgetId), budget);
+      await api.create('budgets', budget);
       setToast(`Budget created — ${money(total)}`);
     } catch (e) {
       console.error("Error creating budget:", e);

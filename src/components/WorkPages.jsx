@@ -1,6 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { doc, setDoc } from 'firebase/firestore';
-import { db } from '../firebase-config';
+import { api } from '../api';
 import { uid, money, Badge, Toast, CrudPanel, FilterSelect } from '../seed';
 
 /* ================================================================ */
@@ -289,8 +288,8 @@ export function IdeasPage({data, setData, onAdd, onUpdate, onDelete}){
     };
     
     try {
-      await setDoc(doc(db, 'projects', projectId), newProject);
-      await setDoc(doc(db, 'ideas', idea.id), { ...idea, status: 'Converted' }, { merge: true });
+      await api.create('projects', newProject);
+      await api.update('ideas', { ...idea, status: 'Converted' });
       setToast(`Converted to project ${newProject.code}`);
     } catch (e) {
       console.error("Error converting idea:", e);

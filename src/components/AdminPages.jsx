@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { doc, setDoc } from 'firebase/firestore';
-import { db } from '../firebase-config';
+import { api } from '../api';
 import { uid, Badge, Toast, Switch, CrudPanel } from '../seed';
 
 /* ================================================================ */
@@ -68,7 +67,13 @@ export function FieldSecurityPage({ data }){
       [field]: { ...config.matrix[field], [role]: next } 
     };
     try {
-      await setDoc(doc(db, 'fieldSecurity', 'config'), { ...config, matrix: updatedMatrix });
+      const nextConfig = { ...config, matrix: updatedMatrix };
+      const existing = data.fieldSecurity?.find(d => d.id === 'config');
+      if (existing) {
+        await api.update('fieldSecurity', nextConfig);
+      } else {
+        await api.create('fieldSecurity', nextConfig);
+      }
     } catch (e) {
       console.error("Error setting security cell:", e);
     }
@@ -116,8 +121,14 @@ export function SystemSettingsPage({ data }){
   
   const upd = async (k, v) => {
     try {
-      await setDoc(doc(db, 'systemSettings', 'config'), { ...s, [k]: v });
-      setToast('System settings successfully updated in the Cloud!');
+      const configDoc = data.systemSettings?.find(d => d.id === 'config') || { id: 'config', ...s };
+      const next = { ...configDoc, ...s, [k]: v };
+      if (configDoc.id) {
+        await api.update('systemSettings', next);
+      } else {
+        await api.create('systemSettings', next);
+      }
+      setToast('System settings successfully updated via the API!');
     } catch (e) {
       console.error("Error updating system settings:", e);
     }
@@ -215,7 +226,7 @@ export function AuthApiPage({ data }){
     const k = apiKeysList.find(x => x.id === id);
     if (!k) return;
     try {
-      await setDoc(doc(db, 'apiKeys', id), { ...k, status: 'Revoked' }, { merge: true });
+      await api.update('apiKeys', { ...k, status: 'Revoked' });
       setToast('API key revoked successfully');
     } catch (e) {
       console.error("Error revoking key:", e);
@@ -226,7 +237,7 @@ export function AuthApiPage({ data }){
     const id = uid('KEY');
     const key = {id, name:'New Integration Key', keyMasked:`nx_live_••••••••${Math.random().toString(16).slice(2,6).toUpperCase()}`, created:new Date().toISOString().slice(0,10), status:'Active'};
     try {
-      await setDoc(doc(db, 'apiKeys', id), key);
+      await api.create('apiKeys', key);
       setToast('New API key generated');
     } catch (e) {
       console.error("Error generating key:", e);
@@ -242,7 +253,13 @@ export function AuthApiPage({ data }){
             <div><div className="settings-label">SAML authentication</div><div className="settings-desc">Require SSO login via the configured identity provider</div></div>
             <Switch on={samlConfig.samlEnabled} onToggle={async () => {
               try {
-                await setDoc(doc(db, 'systemSettings', 'saml'), { samlEnabled: !samlConfig.samlEnabled }, { merge: true });
+                const nextSaml = { id: 'saml', samlEnabled: !samlConfig.samlEnabled };
+                const existing = data.systemSettings?.find(d => d.id === 'saml');
+                if (existing) {
+                  await api.update('systemSettings', nextSaml);
+                } else {
+                  await api.create('systemSettings', nextSaml);
+                }
               } catch (e) {
                 console.error("Error toggling SAML:", e);
               }

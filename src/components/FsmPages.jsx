@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { doc, setDoc } from 'firebase/firestore';
-import { db } from '../firebase-config';
+import { api } from '../api';
 import { money, pct, Badge, CrudPanel, FilterSelect, Tabs, uid, Toast } from '../seed';
 
 /* ================================================================ */
@@ -211,12 +210,9 @@ export function FsmAnalyticsPage({data, setData}){
     const exe = exeMap[ft.id]; const derived = statusFromExecution(exe, ft); const newPct = derived.pct!==undefined? derived.pct : (ft.status==='Completed'? 100 : pmTask.pct);
     
     try {
-      // 1. Update PM Task inside Firestore database collection 'tasks'
-      await setDoc(doc(db, 'tasks', pmTask.id), { ...pmTask, status: derived.status, pct: newPct }, { merge: true });
-      
-      // 2. Write new Sync Activity Log event inside Firestore database collection 'syncLog'
+      await api.update('tasks', { ...pmTask, status: derived.status, pct: newPct });
       const syncId = uid('SYN');
-      await setDoc(doc(db, 'syncLog', syncId), {
+      await api.create('syncLog', {
         id: syncId,
         fieldTaskId: ft.id,
         linkedTaskId: pmTask.id,

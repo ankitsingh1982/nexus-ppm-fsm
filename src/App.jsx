@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { collection, onSnapshot, doc, setDoc, deleteDoc } from 'firebase/firestore';
-import { db } from './firebase-config';
 import './App.css';
+import { api } from './api';
 
 // Seed data, constants & helpers
 import { seed, NAV, MODULE_META, ACCENT } from './seed';
@@ -61,15 +60,18 @@ const ROLE_PERMISSIONS = {
 /* ================================================================ */
 function App(){
   // 1. Initialize State
-  const [data, setData] = useState({
+  const initialData = {
     projects: [], objectives: [], hierarchyLinks: [], roadmapItems: [], costPlan: [],
     benefitPlans: [], budgets: [], baselines: [], tasks: [], todos: [], checklists: [],
     risks: [], issues: [], changes: [], agreements: [], statusReports: [], resources: [],
     timesheets: [], ideas: [], investments: [], teams: [], adhocReports: [], dataDesignerDefs: [],
     uiDesignerDefs: [], blueprints: [], fieldResources: [], fieldTasks: [], schedule: [],
     allocations: [], execution: [], boq: [], devices: [], reports: [], slaRecords: [],
-    billingRecords: [], syncLog: [], assumptions: [], stakeholders: [], lessons: []
-  });
+    billingRecords: [], syncLog: [], assumptions: [], stakeholders: [], lessons: [],
+    systemSettings: [], fieldSecurity: [], apiKeys: [], savedViews: []
+  };
+
+  const [data, setData] = useState(initialData);
 
   const [view, setView] = useState('project-details'); 
   const [projectFilter, setProjectFilter] = useState('ALL');
@@ -86,23 +88,25 @@ function App(){
     return typeof window !== 'undefined' ? window.innerWidth <= 1024 : false;
   });
 
-  // 2. Loop-based Real-Time Database Subscription
+  // 2. Load all records from the Node API on startup
   useEffect(() => {
-    console.log("Initializing real-time database sync...");
-    const collectionsList = Object.keys(data);
-    const unsubscribers = collectionsList.map(colName => {
-      return onSnapshot(collection(db, colName), (snapshot) => {
-        const list = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-        setData(prev => ({ ...prev, [colName]: list }));
-      });
-    });
-    return () => unsubscribers.forEach(unsub => unsub());
+    const loadData = async () => {
+      try {
+        const serverData = await api.getAll();
+        setData({ ...initialData, ...serverData });
+      } catch (error) {
+        console.error('Failed to load app data from API:', error);
+      }
+    };
+
+    loadData();
   }, []);
 
-  // 3. Generic Cloud Database Write Helpers
+  // 3. Generic API-based database write helpers
   const handleAdd = async (collectionName, record) => {
     try {
-      await setDoc(doc(db, collectionName, record.id), record);
+      const saved = await api.create(collectionName, record);
+      setData(prev => ({ ...prev, [collectionName]: [...(prev[collectionName] || []), saved] }));
     } catch (e) {
       console.error(`Error adding to ${collectionName}:`, e);
     }
@@ -110,7 +114,11 @@ function App(){
 
   const handleUpdate = async (collectionName, record) => {
     try {
-      await setDoc(doc(db, collectionName, record.id), record, { merge: true });
+      const updated = await api.update(collectionName, record);
+      setData(prev => ({
+        ...prev,
+        [collectionName]: (prev[collectionName] || []).map(item => item.id === updated.id ? updated : item),
+      }));
     } catch (e) {
       console.error(`Error updating in ${collectionName}:`, e);
     }
@@ -118,7 +126,11 @@ function App(){
 
   const handleDelete = async (collectionName, record) => {
     try {
-      await deleteDoc(doc(db, collectionName, record.id));
+      await api.remove(collectionName, record.id);
+      setData(prev => ({
+        ...prev,
+        [collectionName]: (prev[collectionName] || []).filter(item => item.id !== record.id),
+      }));
     } catch (e) {
       console.error(`Error deleting from ${collectionName}:`, e);
     }
