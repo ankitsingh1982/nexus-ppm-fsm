@@ -1,0 +1,36 @@
+name: Prisma Migrate on Push
+
+on:
+  push:
+    branches:
+      - main
+      - ankitsingh1982-sturdy-chainsaw
+
+jobs:
+  migrate:
+    name: Apply Prisma migrations
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Prisma migrate deploy
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          npx prisma migrate deploy --schema=prisma/schema.prisma
+
+      - name: Generate Prisma client
+        run: npx prisma generate
+
+      - name: Verify migrations
+        run: npx prisma migrate status --schema=prisma/schema.prisma || true
