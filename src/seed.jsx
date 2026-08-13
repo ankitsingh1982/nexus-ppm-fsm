@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { doc, setDoc, onSnapshot, collection } from 'firebase/firestore';
-import { db } from './firebase-config';
+import { api } from './api';
 
 /* ================================================================ */
 /* Utilities & Helper Constants                                     */
@@ -173,15 +172,18 @@ export function CrudPanel({
 
   // ... (keep search and sort logic identical) ...
 
-  // Fetch and Load Saved Views in real-time [11]
+  // Fetch and Load Saved Views from the API [11]
   useEffect(() => {
-    const unsub = onSnapshot(collection(db, 'savedViews'), (snapshot) => {
-      const list = snapshot.docs
-        .map(doc => ({ id: doc.id, ...doc.data() }))
-        .filter(v => v.targetCollection === idPrefix && v.isVisible);
-      setSavedViews(list);
-    });
-    return () => unsub();
+    const loadSavedViews = async () => {
+      try {
+        const list = await api.list('savedViews');
+        setSavedViews(list.filter(v => v.targetCollection === idPrefix && v.isVisible));
+      } catch (error) {
+        console.error('Failed to load saved views:', error);
+      }
+    };
+
+    loadSavedViews();
   }, [idPrefix]);
 
   // Handlers for Custom Query Filters
@@ -310,14 +312,16 @@ export function CrudPanel({
       isVisible: true 
     };
     try {
-      await setDoc(doc(db, 'savedViews', viewId), customView);
-      setToast(`View "${viewName}" successfully saved to Cloud!`);
+      await api.create('savedViews', customView);
+      setToast(`View "${viewName}" successfully saved to the API!`);
       setViewName('');
       setIsSaveViewModalOpen(false);
-      setSelectedViewId(viewId); 
+      setSelectedViewId(viewId);
+      const refreshed = await api.list('savedViews');
+      setSavedViews(refreshed.filter(v => v.targetCollection === idPrefix && v.isVisible));
     } catch (e) {
       console.error("Error saving view: ", e);
-      alert("Failed to save view. Check Firestore security rules.");
+      alert("Failed to save view. Check the API server.");
     }
   };
 

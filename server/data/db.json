@@ -1,0 +1,1271 @@
+{
+  "projects": [
+    {
+      "id": "PRJ-1001",
+      "code": "NX-AS-126",
+      "name": "PPM + FSM Implementation",
+      "manager": "Ankit Singh",
+      "sponsor": "Sachin Maurya",
+      "status": "Planning",
+      "health": "Green",
+      "startDate": "2026-08-01",
+      "endDate": "2026-12-31"
+    },
+    {
+      "id": "PRJ-1002",
+      "code": "NX-AS-127",
+      "name": "PPM Project Module Development",
+      "manager": "Ankit Singh",
+      "sponsor": "Ankit Khatri"
+    },
+    {
+      "id": "PRJ-1003",
+      "code": "NX-2248",
+      "name": "AI-assisted network capacity forecasting",
+      "manager": "D. Alvarez",
+      "sponsor": "TBD",
+      "status": "Planning",
+      "health": "Green",
+      "startDate": "2026-08-06",
+      "endDate": "",
+      "objectives": "Use historical utilization data to predict when data center capacity upgrades are needed."
+    },
+    {
+      "id": "PRJ-1004",
+      "code": "NX-2205",
+      "name": "ERP Financial Module Rollout",
+      "manager": "M. Chen",
+      "sponsor": "CFO",
+      "status": "On Hold",
+      "health": "Red",
+      "startDate": "2025-11-01",
+      "endDate": "2026-06-30",
+      "objectives": "Deploy the new financial consolidation module across all business units."
+    },
+    {
+      "id": "PRJ-1005",
+      "code": "NX-2240",
+      "name": "HVAC Preventive Maintenance Program",
+      "manager": "R. Silva",
+      "sponsor": "Facilities Director",
+      "status": "Planning",
+      "health": "Green",
+      "startDate": "2026-05-01",
+      "endDate": "2026-12-31",
+      "objectives": "Establish recurring field maintenance program across regional facilities."
+    },
+    {
+      "id": "PRJ-14SC",
+      "code": "NX-AS-128",
+      "name": "Project Workspace + Integration",
+      "manager": "Rishi Gupta",
+      "sponsor": "Ankit Singh",
+      "status": "Active",
+      "health": "Amber",
+      "startDate": "2026-07-01",
+      "endDate": "2026-08-31"
+    },
+    {
+      "id": "PRJ-2RJQ",
+      "code": "NS-AS-129",
+      "name": "PPM FSM Demo",
+      "manager": "Ankit Singh",
+      "sponsor": "Rishi Gupta",
+      "status": "Planning",
+      "health": "Green",
+      "startDate": "2026-08-01",
+      "endDate": "2027-03-31"
+    },
+    {
+      "code": "NX-AS-130",
+      "name": "Node Setup + Backend Dev",
+      "manager": "Ankit Singh",
+      "sponsor": "Nikit Singh",
+      "status": "Active",
+      "health": "Green",
+      "startDate": "2026-08-01",
+      "endDate": "2027-03-31",
+      "id": "PRJ-IIL2"
+    }
+  ],
+  "objectives": [
+    {
+      "id": "OBJ-1168",
+      "title": "Reduce data center downtime by 40%",
+      "keyResults": "Cut unplanned outages from 12/yr to 7/yr; automate failover on 3 core sites.",
+      "owner": "A. Kapoor",
+      "targetValue": 40,
+      "actualValue": 22,
+      "status": "On Track",
+      "linkedInvestmentId": "PRJ-1001"
+    },
+    {
+      "id": "OBJ-1169",
+      "title": "Grow digital self-service adoption to 65%",
+      "keyResults": "Portal MAU +30%; support ticket volume -20%.",
+      "owner": "S. Reyes",
+      "targetValue": 65,
+      "actualValue": 38,
+      "status": "At Risk",
+      "linkedInvestmentId": "PRJ-1002"
+    },
+    {
+      "id": "OBJ-1170",
+      "title": "Pass 50,000 new fiber connections in North Zone",
+      "keyResults": "Sector 1-6 complete; sector 7 evaluated for expansion.",
+      "owner": "T. Mensah",
+      "targetValue": 50000,
+      "actualValue": 18400,
+      "status": "On Track",
+      "linkedInvestmentId": "PRJ-1003"
+    }
+  ],
+  "hierarchyLinks": [
+    {
+      "id": "HL-1171",
+      "parentId": "INV-01",
+      "childId": "PRJ-1001"
+    },
+    {
+      "id": "HL-1172",
+      "parentId": "INV-02",
+      "childId": "PRJ-1002"
+    },
+    {
+      "id": "HL-1173",
+      "parentId": "INV-03",
+      "childId": "PRJ-1003"
+    }
+  ],
+  "roadmapItems": [
+    {
+      "id": "RM-1174",
+      "title": "Data Center Modernization Wave 1",
+      "investmentId": "PRJ-1001",
+      "startDate": "2026-02-01",
+      "endDate": "2026-11-30",
+      "status": "In Progress"
+    },
+    {
+      "id": "RM-1175",
+      "title": "Portal Phase 2 — Loyalty Module",
+      "investmentId": "PRJ-1002",
+      "startDate": "2026-09-15",
+      "endDate": "2027-01-31",
+      "status": "Not Started"
+    },
+    {
+      "id": "RM-1176",
+      "title": "North Zone Fiber — Sectors 1-6",
+      "investmentId": "PRJ-1003",
+      "startDate": "2026-03-01",
+      "endDate": "2027-02-28",
+      "status": "In Progress"
+    }
+  ],
+  "costPlan": [
+    {
+      "id": "CP-1177",
+      "projectId": "PRJ-1001",
+      "period": "2026 Q1",
+      "category": "Capex",
+      "plannedAmount": 750000,
+      "committedAmount": 610000,
+      "actualAmount": 520000,
+      "planOfRecord": "Yes"
+    },
+    {
+      "id": "CP-1178",
+      "projectId": "PRJ-1001",
+      "period": "2026 Q2",
+      "category": "Labor",
+      "plannedAmount": 300000,
+      "committedAmount": 220000,
+      "actualAmount": 195000,
+      "planOfRecord": "Yes"
+    },
+    {
+      "id": "CP-1179",
+      "projectId": "PRJ-1002",
+      "period": "2026 Q1",
+      "category": "Labor",
+      "plannedAmount": 350000,
+      "committedAmount": 340000,
+      "actualAmount": 330000,
+      "planOfRecord": "Yes"
+    },
+    {
+      "id": "CP-1180",
+      "projectId": "PRJ-1002",
+      "period": "2026 Q2",
+      "category": "Vendor",
+      "plannedAmount": 225000,
+      "committedAmount": 210000,
+      "actualAmount": 200000,
+      "planOfRecord": "No"
+    },
+    {
+      "id": "CP-1181",
+      "projectId": "PRJ-1003",
+      "period": "2026 Q2",
+      "category": "Capex",
+      "plannedAmount": 1600000,
+      "committedAmount": 950000,
+      "actualAmount": 725000,
+      "planOfRecord": "Yes"
+    },
+    {
+      "id": "CP-1182",
+      "projectId": "PRJ-1004",
+      "period": "2026 Q1",
+      "category": "Capex",
+      "plannedAmount": 500000,
+      "committedAmount": 480000,
+      "actualAmount": 475000,
+      "planOfRecord": "Yes"
+    }
+  ],
+  "benefitPlans": [
+    {
+      "id": "BP-1183",
+      "projectId": "PRJ-1002",
+      "period": "2026 Q3",
+      "benefitType": "Revenue",
+      "plannedAmount": 180000,
+      "realizedAmount": 0,
+      "status": "Forecast"
+    },
+    {
+      "id": "BP-1184",
+      "projectId": "PRJ-1003",
+      "period": "2026 Q4",
+      "benefitType": "Revenue",
+      "plannedAmount": 640000,
+      "realizedAmount": 210000,
+      "status": "Committed"
+    },
+    {
+      "id": "BP-1185",
+      "projectId": "PRJ-1001",
+      "period": "2026 Q3",
+      "benefitType": "Cost Savings",
+      "plannedAmount": 95000,
+      "realizedAmount": 40000,
+      "status": "Committed"
+    }
+  ],
+  "budgets": [
+    {
+      "id": "BUD-1186",
+      "projectId": "PRJ-1004",
+      "name": "ERP Financial Module — FY26 Budget",
+      "totalAmount": 500000,
+      "approvedBy": "M. Chen",
+      "approvedDate": "2025-11-05",
+      "status": "Active",
+      "sourceNote": "Converted from Plan of Record cost plan."
+    }
+  ],
+  "baselines": [
+    {
+      "id": "BL-1187",
+      "projectId": "PRJ-1001",
+      "version": "Baseline v1.0",
+      "date": "2026-02-05",
+      "budget": 2300000,
+      "endDate": "2026-11-15",
+      "notes": "Original approved baseline."
+    },
+    {
+      "id": "BL-1188",
+      "projectId": "PRJ-1001",
+      "version": "Baseline v1.1",
+      "date": "2026-05-20",
+      "budget": 2400000,
+      "endDate": "2026-11-30",
+      "notes": "Re-baselined after scope addition for Site C."
+    },
+    {
+      "id": "BL-1189",
+      "projectId": "PRJ-1003",
+      "version": "Baseline v1.0",
+      "date": "2026-03-05",
+      "budget": 5200000,
+      "endDate": "2027-02-28",
+      "notes": "Original approved baseline for North Zone."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "TSK-2001",
+      "projectId": "PRJ-1001",
+      "name": "Procure core switches — Site A/B/C",
+      "kind": "Task",
+      "start": "2026-02-10",
+      "end": "2026-04-01",
+      "owner": "D. Alvarez",
+      "pct": 100,
+      "status": "Completed"
+    },
+    {
+      "id": "TSK-2002",
+      "projectId": "PRJ-1001",
+      "name": "Site A cutover complete",
+      "kind": "Milestone",
+      "start": "2026-05-15",
+      "end": "2026-05-15",
+      "pct": 100,
+      "owner": "A. Kapoor",
+      "status": "Completed"
+    },
+    {
+      "id": "TSK-2003",
+      "projectId": "PRJ-1002",
+      "name": "Design system component migration",
+      "kind": "Task",
+      "start": "2026-02-01",
+      "end": "2026-05-30",
+      "pct": 65,
+      "owner": "H. Kim",
+      "status": "In Progress"
+    },
+    {
+      "id": "TSK-2004",
+      "projectId": "PRJ-1003",
+      "name": "Sector 4 trenching and conduit install",
+      "kind": "Task",
+      "start": "2026-04-01",
+      "end": "2026-07-15",
+      "pct": 40,
+      "owner": "O. Bello",
+      "status": "In Progress"
+    },
+    {
+      "id": "TSK-2005",
+      "projectId": "PRJ-1003",
+      "name": "Sector 4 splicing complete",
+      "kind": "Milestone",
+      "start": "2026-07-20",
+      "end": "2026-07-20",
+      "pct": 0,
+      "owner": "O. Bello",
+      "status": "Not Started"
+    },
+    {
+      "id": "TSK-2006",
+      "projectId": "PRJ-1004",
+      "name": "Chart of accounts validation",
+      "kind": "Task",
+      "start": "2026-01-10",
+      "end": "2026-03-01",
+      "pct": 90,
+      "owner": "G. Lindqvist",
+      "status": "In Progress"
+    },
+    {
+      "id": "TSK-2007",
+      "projectId": "PRJ-1001",
+      "name": "Design & Procurement Phase",
+      "kind": "Phase",
+      "start": "2026-02-01",
+      "end": "2026-04-15",
+      "pct": 85,
+      "owner": "A. Kapoor",
+      "status": "In Progress"
+    },
+    {
+      "id": "TSK-65FC",
+      "projectId": "PRJ-2RJQ",
+      "name": "Kick Off",
+      "kind": "Task",
+      "start": "2026-08-10",
+      "end": "2026-08-14",
+      "pct": 10,
+      "owner": "Rishi Gupta",
+      "status": "Not Started"
+    }
+  ],
+  "todos": [
+    {
+      "id": "TD-1190",
+      "taskId": "TSK-2001",
+      "projectId": "PRJ-1001",
+      "text": "Confirm delivery window with vendor logistics",
+      "owner": "D. Alvarez",
+      "done": true
+    },
+    {
+      "id": "TD-1191",
+      "taskId": "TSK-2001",
+      "projectId": "PRJ-1001",
+      "text": "Schedule loading-dock access for Site B",
+      "owner": "D. Alvarez",
+      "done": false
+    },
+    {
+      "id": "TD-1192",
+      "taskId": "TSK-2004",
+      "projectId": "PRJ-1003",
+      "text": "Verify utility locate tickets for sector 4",
+      "owner": "O. Bello",
+      "done": true
+    },
+    {
+      "id": "TD-1193",
+      "taskId": "TSK-2004",
+      "projectId": "PRJ-1003",
+      "text": "Order additional conduit — 400ft",
+      "owner": "O. Bello",
+      "done": false
+    }
+  ],
+  "checklists": [
+    {
+      "id": "CHK-1194",
+      "taskId": "TSK-2002",
+      "projectId": "PRJ-1001",
+      "item": "Change record approved by CAB",
+      "done": true,
+      "owner": "A. Kapoor",
+      "fromTemplate": "Yes"
+    },
+    {
+      "id": "CHK-1195",
+      "taskId": "TSK-2002",
+      "projectId": "PRJ-1001",
+      "item": "Rollback plan documented",
+      "done": true,
+      "owner": "D. Alvarez",
+      "fromTemplate": "Yes"
+    },
+    {
+      "id": "CHK-1196",
+      "taskId": "TSK-2002",
+      "projectId": "PRJ-1001",
+      "item": "Stakeholder sign-off obtained",
+      "done": false,
+      "owner": "A. Kapoor",
+      "fromTemplate": "No"
+    },
+    {
+      "id": "CHK-1197",
+      "taskId": "TSK-2005",
+      "projectId": "PRJ-1003",
+      "item": "Splice test results logged",
+      "done": false,
+      "owner": "O. Bello",
+      "fromTemplate": "Yes"
+    }
+  ],
+  "risks": [
+    {
+      "id": "RSK-1198",
+      "projectId": "PRJ-1001",
+      "kind": "Risk",
+      "title": "Vendor hardware lead-time slippage",
+      "category": "Procurement",
+      "probability": "Medium",
+      "impact": "High",
+      "owner": "A. Kapoor",
+      "status": "Open",
+      "response": "Expedite PO with alternate vendor as backup."
+    },
+    {
+      "id": "RSK-1199",
+      "projectId": "PRJ-1002",
+      "kind": "Risk",
+      "title": "Design system migration delays QA cycle",
+      "category": "Technical",
+      "probability": "High",
+      "impact": "Medium",
+      "owner": "S. Reyes",
+      "status": "Mitigated",
+      "response": "Parallel QA track added for regression testing."
+    },
+    {
+      "id": "RSK-1200",
+      "projectId": "PRJ-1003",
+      "kind": "Risk",
+      "title": "Permit approval delays in North Zone",
+      "category": "Regulatory",
+      "probability": "Medium",
+      "impact": "High",
+      "owner": "T. Mensah",
+      "status": "Open",
+      "response": "Engaging municipal liaison for expedited review."
+    },
+    {
+      "id": "RSK-1201",
+      "projectId": "PRJ-1003",
+      "kind": "Opportunity",
+      "title": "Bulk fiber pricing available if sector 7 added now",
+      "category": "Commercial",
+      "probability": "Medium",
+      "impact": "Medium",
+      "owner": "T. Mensah",
+      "status": "Open",
+      "response": "Evaluate change request to expand scope."
+    }
+  ],
+  "issues": [
+    {
+      "id": "ISS-1202",
+      "projectId": "PRJ-1001",
+      "title": "Site B network closet lacks adequate cooling",
+      "priority": "High",
+      "owner": "D. Alvarez",
+      "status": "In Progress",
+      "raised": "2026-06-02",
+      "resolution": ""
+    },
+    {
+      "id": "ISS-1203",
+      "projectId": "PRJ-1002",
+      "title": "Portal SSO integration failing for legacy accounts",
+      "priority": "Critical",
+      "owner": "J. Whitfield",
+      "status": "Open",
+      "raised": "2026-06-10",
+      "resolution": ""
+    },
+    {
+      "id": "ISS-1204",
+      "projectId": "PRJ-1003",
+      "title": "Trenching crew short-staffed in sector 4",
+      "priority": "Medium",
+      "owner": "O. Bello",
+      "status": "Open",
+      "raised": "2026-06-14",
+      "resolution": ""
+    }
+  ],
+  "changes": [
+    {
+      "id": "CHG-1205",
+      "projectId": "PRJ-1001",
+      "title": "Add redundant WAN link at Site C",
+      "type": "Scope",
+      "impact": "+$120,000 / +3 weeks",
+      "status": "Approved",
+      "requestedBy": "A. Kapoor"
+    },
+    {
+      "id": "CHG-1206",
+      "projectId": "PRJ-1003",
+      "title": "Extend deployment to sector 7",
+      "type": "Scope",
+      "impact": "+$310,000 / +6 weeks",
+      "status": "Submitted",
+      "requestedBy": "T. Mensah"
+    }
+  ],
+  "agreements": [
+    {
+      "id": "AGR-1207",
+      "title": "Fiber capacity reserved for Portal geo-redundancy",
+      "fromId": "PRJ-1003",
+      "toId": "PRJ-1002",
+      "type": "Dependency",
+      "status": "Active",
+      "owner": "T. Mensah",
+      "dueDate": "2026-10-01",
+      "description": "North Zone build must reserve capacity for the portal DR site before Q4 cutover."
+    },
+    {
+      "id": "AGR-1208",
+      "title": "Idea funding commitment — AI capacity forecasting",
+      "fromId": "PRJ-1001",
+      "toId": "IDE-1001",
+      "type": "Commitment",
+      "status": "Draft",
+      "owner": "A. Kapoor",
+      "dueDate": "2026-09-01",
+      "description": "Infrastructure team commits engineering time if the idea is approved."
+    }
+  ],
+  "statusReports": [
+    {
+      "id": "SR-1209",
+      "projectId": "PRJ-1001",
+      "period": "2026-06 (June)",
+      "rag": "Green",
+      "accomplishments": "Completed Site A cutover; procurement 80% complete.",
+      "nextSteps": "Begin Site B installation; close outstanding cooling issue.",
+      "submittedBy": "A. Kapoor",
+      "publishStatus": "Published"
+    },
+    {
+      "id": "SR-1210",
+      "projectId": "PRJ-1002",
+      "period": "2026-06 (June)",
+      "rag": "Amber",
+      "accomplishments": "Component migration 65% complete.",
+      "nextSteps": "Resolve SSO integration defect; resume QA cycle.",
+      "submittedBy": "S. Reyes",
+      "publishStatus": "Published"
+    },
+    {
+      "id": "SR-1211",
+      "projectId": "PRJ-1003",
+      "period": "2026-07 (July)",
+      "rag": "Green",
+      "accomplishments": "Sector 3 splicing complete; sector 4 trenching underway.",
+      "nextSteps": "Address crew staffing gap in sector 4.",
+      "submittedBy": "T. Mensah",
+      "publishStatus": "Draft"
+    }
+  ],
+  "resources": [
+    {
+      "id": "RES-1212",
+      "name": "Priya Nair",
+      "role": "Project Manager",
+      "skill": "Infrastructure PM",
+      "rate": 95,
+      "capacity": 40,
+      "allocatedProjectId": "PRJ-1001",
+      "allocationPct": 80
+    },
+    {
+      "id": "RES-1213",
+      "name": "Diego Alvarez",
+      "role": "Network Architect",
+      "skill": "Networking",
+      "rate": 110,
+      "capacity": 40,
+      "allocatedProjectId": "PRJ-1001",
+      "allocationPct": 60
+    },
+    {
+      "id": "RES-1214",
+      "name": "Hana Kim",
+      "role": "UX Lead",
+      "skill": "Product Design",
+      "rate": 98,
+      "capacity": 40,
+      "allocatedProjectId": "PRJ-1002",
+      "allocationPct": 100
+    },
+    {
+      "id": "RES-1215",
+      "name": "James Whitfield",
+      "role": "Full-stack Engineer",
+      "skill": "Frontend/Backend",
+      "rate": 88,
+      "capacity": 40,
+      "allocatedProjectId": "PRJ-1002",
+      "allocationPct": 90
+    },
+    {
+      "id": "RES-1216",
+      "name": "Olamide Bello",
+      "role": "Field Ops Manager",
+      "skill": "Fiber Deployment",
+      "rate": 82,
+      "capacity": 40,
+      "allocatedProjectId": "PRJ-1003",
+      "allocationPct": 100
+    },
+    {
+      "id": "RES-1217",
+      "name": "Grace Lindqvist",
+      "role": "Financial Analyst",
+      "skill": "ERP / Finance",
+      "rate": 90,
+      "capacity": 40,
+      "allocatedProjectId": "PRJ-1004",
+      "allocationPct": 50
+    },
+    {
+      "id": "RES-BNO6",
+      "name": "Ankit Singh",
+      "role": "Project Manager",
+      "skill": "Project Management, PMO",
+      "rate": 2500,
+      "capacity": 20,
+      "allocatedProjectId": "PRJ-14SC",
+      "allocationPct": 20
+    }
+  ],
+  "timesheets": [
+    {
+      "id": "TS-1218",
+      "resourceId": "RES-1213",
+      "taskId": "TSK-2001",
+      "weekOf": "2026-06-01",
+      "hours": 36,
+      "status": "Approved"
+    },
+    {
+      "id": "TS-1219",
+      "resourceId": "RES-1213",
+      "taskId": "TSK-2001",
+      "weekOf": "2026-06-08",
+      "hours": 32,
+      "status": "Approved"
+    },
+    {
+      "id": "TS-1220",
+      "resourceId": "RES-1215",
+      "taskId": "TSK-2003",
+      "weekOf": "2026-06-08",
+      "hours": 38,
+      "status": "Submitted"
+    },
+    {
+      "id": "TS-1221",
+      "resourceId": "RES-1216",
+      "taskId": "TSK-2004",
+      "weekOf": "2026-06-08",
+      "hours": 40,
+      "status": "Draft"
+    }
+  ],
+  "ideas": [
+    {
+      "id": "IDE-1000",
+      "title": "Idea123",
+      "status": "New",
+      "businessValue": "Medium"
+    },
+    {
+      "id": "IDE-1001",
+      "title": "AI-assisted network capacity forecasting",
+      "category": "Infrastructure",
+      "requestedBy": "D. Alvarez",
+      "businessValue": "High",
+      "description": "Use historical utilization data to predict when data center capacity upgrades are needed.",
+      "status": "Converted"
+    },
+    {
+      "id": "IDE-1222",
+      "title": "Self-service SIM provisioning portal",
+      "category": "Digital",
+      "requestedBy": "S. Reyes",
+      "status": "New",
+      "businessValue": "Medium",
+      "description": "Allow customers to provision and manage SIM/connectivity without a support call."
+    },
+    {
+      "id": "IDE-1223",
+      "title": "Drone-assisted fiber route inspection",
+      "category": "Field Operations",
+      "requestedBy": "T. Mensah",
+      "status": "Approved",
+      "businessValue": "High",
+      "description": "Use drones to inspect aerial fiber routes ahead of and after installation."
+    }
+  ],
+  "investments": [
+    {
+      "id": "INV-01",
+      "code": "INV-01",
+      "name": "Digital Infrastructure Modernization Program",
+      "type": "Program",
+      "sponsor": "CIO Office",
+      "status": "Active",
+      "totalBudget": 8500000,
+      "linkedProjectId": "PRJ-1001"
+    },
+    {
+      "id": "INV-02",
+      "code": "INV-02",
+      "name": "Customer Experience Platform",
+      "type": "Digital Transformation",
+      "sponsor": "VP Digital",
+      "status": "Active",
+      "totalBudget": 1150000,
+      "linkedProjectId": "PRJ-1002"
+    },
+    {
+      "id": "INV-03",
+      "code": "INV-03",
+      "name": "North Zone Network Asset",
+      "type": "Market Expansion",
+      "sponsor": "COO",
+      "status": "Active",
+      "totalBudget": 5200000,
+      "linkedProjectId": "PRJ-1003"
+    }
+  ],
+  "teams": [
+    {
+      "id": "TM-1224",
+      "name": "Infrastructure Delivery",
+      "description": "Core team executing data center and network projects.",
+      "lead": "Priya Nair",
+      "members": "Priya Nair, Diego Alvarez",
+      "fundingModel": "Persistent"
+    },
+    {
+      "id": "TM-1225",
+      "name": "Digital Experience",
+      "description": "Portal modernization design and engineering team.",
+      "lead": "Hana Kim",
+      "members": "Hana Kim, James Whitfield",
+      "fundingModel": "Project-based"
+    },
+    {
+      "id": "TM-1226",
+      "name": "North Zone Field Crew",
+      "description": "Field deployment team for the fiber rollout program.",
+      "lead": "Olamide Bello",
+      "members": "Olamide Bello, Marcus Odum, Lena Fischer",
+      "fundingModel": "Persistent"
+    }
+  ],
+  "adhocReports": [
+    {
+      "id": "ADH-1227",
+      "name": "Open risks by project",
+      "dataSource": "Risks & Opportunities",
+      "filterSummary": "status = 'Open'",
+      "createdBy": "A. Kapoor",
+      "dateCreated": "2026-06-18"
+    },
+    {
+      "id": "ADH-1228",
+      "name": "Field technician utilization",
+      "dataSource": "Resources",
+      "filterSummary": "role = 'Field Ops Manager'",
+      "createdBy": "O. Bello",
+      "dateCreated": "2026-06-20"
+    }
+  ],
+  "dataDesignerDefs": [
+    {
+      "id": "DD-1229",
+      "name": "Cost plan by project",
+      "dataSource": "Cost Plans",
+      "fields": "projectId, period, plannedAmount, actualAmount",
+      "joinNote": "Joined to Project on projectId"
+    },
+    {
+      "id": "DD-1230",
+      "name": "Investment portfolio overview",
+      "dataSource": "Custom Investments",
+      "fields": "code, name, type, status, totalBudget",
+      "joinNote": "No joins — investment master data only"
+    }
+  ],
+  "uiDesignerDefs": [
+    {
+      "id": "UI-1231",
+      "name": "Cost plan — actual spend by project",
+      "dataDesignerId": "DD-1229",
+      "chartType": "Bar",
+      "title": "Actual spend by project"
+    }
+  ],
+  "blueprints": [
+    {
+      "id": "BP-IDE",
+      "name": "Idea Intake Blueprint",
+      "investmentType": "Idea",
+      "status": "Active",
+      "stages": "Submit → Screen → Evaluate → Convert"
+    },
+    {
+      "id": "BP-INV",
+      "name": "Custom Investment Blueprint",
+      "investmentType": "Investment",
+      "stages": "Propose → Approve → Fund → Track",
+      "status": "Active"
+    },
+    {
+      "id": "BP-PRJ",
+      "name": "Standard Project Blueprint",
+      "investmentType": "Project",
+      "status": "Active",
+      "stages": "Initiate → Plan → Execute → Close"
+    }
+  ],
+  "fieldResources": [
+    {
+      "id": "EQP-01",
+      "name": "Fusion Splicer #4",
+      "type": "Equipment",
+      "skill": "—",
+      "status": "Busy",
+      "homeBase": "North Depot"
+    },
+    {
+      "id": "TEC-01",
+      "name": "Marcus Odum",
+      "type": "Technician",
+      "skill": "Fiber Splicing",
+      "status": "Available",
+      "homeBase": "North Depot"
+    },
+    {
+      "id": "TEC-02",
+      "name": "Lena Fischer",
+      "type": "Technician",
+      "skill": "Network Cabling",
+      "status": "Busy",
+      "homeBase": "North Depot"
+    },
+    {
+      "id": "TEC-03",
+      "name": "Ravi Deshmukh",
+      "type": "Technician",
+      "skill": "HVAC Maintenance",
+      "status": "Available",
+      "homeBase": "Central Depot"
+    },
+    {
+      "id": "TEC-04",
+      "name": "Sofia Ricci",
+      "type": "Technician",
+      "skill": "Data Center Hardware",
+      "status": "Off Duty",
+      "homeBase": "West Depot"
+    },
+    {
+      "id": "VEH-01",
+      "name": "Bucket Truck 12",
+      "type": "Vehicle",
+      "skill": "—",
+      "status": "Available",
+      "homeBase": "North Depot"
+    }
+  ],
+  "fieldTasks": [
+    {
+      "id": "FT-3001",
+      "code": "FS-00231",
+      "title": "Splice sector 4 fiber junction — segment 12",
+      "linkedTaskId": "TSK-2004",
+      "site": "North Zone / Sector 4",
+      "priority": "High",
+      "type": "Installation",
+      "status": "In Progress"
+    },
+    {
+      "id": "FT-3002",
+      "code": "FS-00232",
+      "title": "Site B server room cooling remediation",
+      "linkedTaskId": "TSK-2001",
+      "site": "Data Center — Site B",
+      "priority": "Critical",
+      "type": "Repair",
+      "status": "Completed"
+    },
+    {
+      "id": "FT-3003",
+      "code": "FS-00233",
+      "title": "Quarterly HVAC inspection — Central Facility",
+      "linkedTaskId": "",
+      "site": "Central Facility",
+      "priority": "Medium",
+      "type": "Preventive Maintenance",
+      "status": "New"
+    },
+    {
+      "id": "FT-3004",
+      "code": "FS-00234",
+      "title": "Install core switch — Site A rack 3",
+      "linkedTaskId": "TSK-2001",
+      "site": "Data Center — Site A",
+      "priority": "High",
+      "type": "Installation",
+      "status": "Completed"
+    }
+  ],
+  "schedule": [
+    {
+      "id": "SCH-1234",
+      "fieldTaskId": "FT-3001",
+      "technicianId": "TEC-01",
+      "date": "2026-08-05",
+      "window": "08:00–12:00",
+      "status": "Confirmed"
+    },
+    {
+      "id": "SCH-1235",
+      "fieldTaskId": "FT-3002",
+      "technicianId": "TEC-04",
+      "date": "2026-08-04",
+      "window": "13:00–17:00",
+      "status": "Scheduled"
+    },
+    {
+      "id": "SCH-1236",
+      "fieldTaskId": "FT-3004",
+      "technicianId": "TEC-04",
+      "date": "2026-07-22",
+      "window": "09:00–15:00",
+      "status": "Confirmed"
+    }
+  ],
+  "allocations": [
+    {
+      "id": "ALC-1237",
+      "fieldTaskId": "FT-3001",
+      "technicianId": "TEC-01",
+      "hoursAllocated": 4
+    },
+    {
+      "id": "ALC-1238",
+      "fieldTaskId": "FT-3001",
+      "technicianId": "TEC-02",
+      "hoursAllocated": 4
+    },
+    {
+      "id": "ALC-1239",
+      "fieldTaskId": "FT-3004",
+      "technicianId": "TEC-04",
+      "hoursAllocated": 6
+    }
+  ],
+  "execution": [
+    {
+      "id": "EXE-1240",
+      "fieldTaskId": "FT-3001",
+      "status": "Started",
+      "startedAt": "2026-08-05 08:10",
+      "completedAt": "",
+      "notes": "Splicing in progress, 6 of 12 fibers complete."
+    },
+    {
+      "id": "EXE-1241",
+      "fieldTaskId": "FT-3002",
+      "status": "Not Started",
+      "startedAt": "",
+      "completedAt": "",
+      "notes": ""
+    },
+    {
+      "id": "EXE-1242",
+      "fieldTaskId": "FT-3004",
+      "status": "Completed",
+      "startedAt": "2026-07-22 09:05",
+      "completedAt": "2026-07-22 14:40",
+      "notes": "Switch installed and validated, uplinked to core."
+    }
+  ],
+  "boq": [
+    {
+      "id": "BOQ-1243",
+      "fieldTaskId": "FT-3001",
+      "item": "Single-mode fiber cable (per ft)",
+      "uom": "ft",
+      "plannedQty": 400,
+      "usedQty": 210,
+      "unitCost": 0.85
+    },
+    {
+      "id": "BOQ-1244",
+      "fieldTaskId": "FT-3004",
+      "item": "48-port core switch",
+      "uom": "ea",
+      "plannedQty": 1,
+      "usedQty": 1,
+      "unitCost": 8200
+    }
+  ],
+  "devices": [
+    {
+      "id": "DEV-1245",
+      "technicianId": "TEC-01",
+      "model": "Panasonic Toughbook FZ-55",
+      "imei": "358251-09-482911-1",
+      "os": "Windows 11",
+      "status": "Active",
+      "lastSync": "2026-08-01 06:40"
+    },
+    {
+      "id": "DEV-1246",
+      "technicianId": "TEC-04",
+      "model": "Apple iPad (10th gen)",
+      "imei": "358251-09-482913-3",
+      "os": "iPadOS 18",
+      "status": "Active",
+      "lastSync": "2026-07-22 15:02"
+    }
+  ],
+  "reports": [
+    {
+      "id": "RPT-1247",
+      "fieldTaskId": "FT-3004",
+      "submittedBy": "Sofia Ricci",
+      "date": "2026-07-22",
+      "summary": "Core switch installed, cabled, and validated against design spec. Uplink tested at 10G.",
+      "signOff": "Yes"
+    }
+  ],
+  "slaRecords": [
+    {
+      "id": "SLA-1248",
+      "customer": "Meridian Data Services",
+      "fieldTaskId": "FT-3002",
+      "slaTarget": "4 hour response / 24 hour resolution",
+      "responseTimeHrs": 2.5,
+      "resolutionTimeHrs": 14,
+      "status": "Met"
+    },
+    {
+      "id": "SLA-1249",
+      "customer": "North Zone Municipal Authority",
+      "fieldTaskId": "FT-3001",
+      "slaTarget": "8 hour response / 72 hour resolution",
+      "responseTimeHrs": 9.5,
+      "resolutionTimeHrs": 60,
+      "status": "At Risk"
+    }
+  ],
+  "billingRecords": [
+    {
+      "id": "BILL-1250",
+      "fieldTaskId": "FT-3004",
+      "laborCost": 1980,
+      "materialsCost": 8486,
+      "invoiceStatus": "Invoiced",
+      "invoiceNumber": "INV-88231"
+    },
+    {
+      "id": "BILL-1251",
+      "fieldTaskId": "FT-3001",
+      "laborCost": 640,
+      "materialsCost": 193,
+      "invoiceStatus": "Not Invoiced",
+      "invoiceNumber": ""
+    }
+  ],
+  "syncLog": [
+    {
+      "id": "SYN-1000",
+      "fieldTaskId": "FT-3001",
+      "linkedTaskId": "TSK-2004",
+      "syncedAt": "7/8/2026, 1:27:13 am",
+      "note": "Synced \"Splice sector 4 fiber junction — segment 12\" → In Progress (40%)"
+    },
+    {
+      "id": "SYN-1001",
+      "fieldTaskId": "FT-3002",
+      "linkedTaskId": "TSK-2001",
+      "syncedAt": "7/8/2026, 1:27:13 am",
+      "note": "Synced \"Site B server room cooling remediation\" → Not Started (100%)"
+    },
+    {
+      "id": "SYN-1002",
+      "fieldTaskId": "FT-3004",
+      "linkedTaskId": "TSK-2001",
+      "syncedAt": "7/8/2026, 1:27:13 am",
+      "note": "Synced \"Install core switch — Site A rack 3\" → Completed (100%)"
+    }
+  ],
+  "assumptions": [],
+  "stakeholders": [],
+  "lessons": [],
+  "systemSettings": [
+    {
+      "id": "config",
+      "currency": "USD",
+      "fiscalYearStart": "January",
+      "dateFormat": "MM/DD/YYYY",
+      "timeTrackingRequired": true,
+      "language": "English",
+      "themeColor": "#1d4ed8",
+      "fontSize": "Medium",
+      "logoUrl": ""
+    }
+  ],
+  "fieldSecurity": [
+    {
+      "id": "config",
+      "fields": [
+        "Budget",
+        "Actuals",
+        "Objective Target",
+        "Risk Owner",
+        "Approved Rate"
+      ],
+      "roles": [
+        "Project Manager",
+        "Resource Manager",
+        "Executive",
+        "Field Technician"
+      ],
+      "matrix": {
+        "Budget": {
+          "Project Manager": "Hidden",
+          "Resource Manager": "Read-only",
+          "Executive": "Read-only",
+          "Field Technician": "Hidden"
+        },
+        "Actuals": {
+          "Project Manager": "Editable",
+          "Resource Manager": "Editable",
+          "Executive": "Read-only",
+          "Field Technician": "Hidden"
+        },
+        "Objective Target": {
+          "Project Manager": "Read-only",
+          "Resource Manager": "Hidden",
+          "Executive": "Editable",
+          "Field Technician": "Hidden"
+        },
+        "Risk Owner": {
+          "Project Manager": "Editable",
+          "Resource Manager": "Read-only",
+          "Executive": "Read-only",
+          "Field Technician": "Read-only"
+        },
+        "Approved Rate": {
+          "Project Manager": "Read-only",
+          "Resource Manager": "Editable",
+          "Executive": "Read-only",
+          "Field Technician": "Hidden"
+        }
+      }
+    }
+  ],
+  "apiKeys": [],
+  "savedViews": [
+    {
+      "id": "VIEW-IDX6",
+      "targetCollection": "PRJ",
+      "name": "Ankit View",
+      "query": "",
+      "sortConfig": {
+        "key": null,
+        "direction": null
+      },
+      "hiddenColumns": [],
+      "isVisible": true
+    },
+    {
+      "id": "VIEW-K9CO",
+      "targetCollection": "PRJ",
+      "name": "Planning - Green",
+      "query": "",
+      "sortConfig": {
+        "key": "manager",
+        "direction": "desc"
+      },
+      "hiddenColumns": [],
+      "customFilters": [
+        {
+          "id": "FLT-9GDS",
+          "field": "status",
+          "value": "Planning"
+        },
+        {
+          "id": "FLT-HA1C",
+          "field": "health",
+          "value": "Green"
+        },
+        {
+          "id": "FLT-NDSX",
+          "field": "",
+          "value": ""
+        }
+      ],
+      "matchOperator": "and",
+      "primaryGroup": "",
+      "secondaryGroup": "",
+      "isVisible": true
+    }
+  ]
+}
