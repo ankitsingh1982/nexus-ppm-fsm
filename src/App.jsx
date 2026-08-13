@@ -73,7 +73,7 @@ function App(){
 
   const [data, setData] = useState(initialData);
 
-  const [view, setView] = useState('project-details'); 
+  const [view, setView] = useState('objectives'); 
   const [projectFilter, setProjectFilter] = useState('ALL');
   const [activeProjectId, setActiveProjectId] = useState(null); // Active Selected Project Workspace ID
   const [expandedGroups, setExpandedGroups] = useState({}); 
