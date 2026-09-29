@@ -1,4 +1,4 @@
-const API_BASE = import.meta.env.VITE_API_URL || '/api';
+const API_BASE = import.meta.env.VITE_API_URL || (typeof window !== 'undefined' && window.location.port && window.location.port !== '5173' ? 'http://localhost:5000/api' : '/api');
 
 async function request(method, path, body) {
   const options = {
