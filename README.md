@@ -1,12 +1,12 @@
 # Nexus PPM + Field Ops
 
-A Vite + React prototype of a Clarity-style PPM platform with a Node.js API backend and JSON persistence.
+A Vite + React prototype of a Clarity-style PPM platform with a Node.js API backend. The API uses the included JSON database by default, or PostgreSQL when `DATABASE_URL` is configured.
 
 ## Architecture
 
 - Frontend: React + Vite
 - Backend: Express API in `server/index.js`
-- Persistence: JSON file in `server/data/db.json`
+- Persistence: JSON file in `server/data/db.json` by default; PostgreSQL via Prisma when `DATABASE_URL` is set
 - Data access: browser calls `/api/*` instead of direct Firestore access
 
 ## Structure
@@ -41,6 +41,24 @@ This starts both:
 - the API on http://localhost:5000
 - the Vite app on http://localhost:5173
 
+No database configuration is required for local development. The API uses the records in `server/data/db.json` and saves changes there.
+
+## Use Neon PostgreSQL
+
+Create a `.env` file in the repository root and set `DATABASE_URL` to your Neon connection string (including `sslmode=require`), then generate the Prisma client and apply the schema:
+
+```env
+DATABASE_URL="postgresql://user:password@host/database?sslmode=require"
+```
+
+```bash
+npm run db:generate
+npm run db:push
+npm run dev
+```
+
+When `DATABASE_URL` is set, the API uses PostgreSQL instead of the local JSON file. Keep `.env` private; it is excluded from Git.
+
 ## Build
 
 ```bash
@@ -60,4 +78,4 @@ PUT /api/projects/:id
 DELETE /api/projects/:id
 ```
 
-The JSON backend is meant for local development and prototype use. It can be replaced with PostgreSQL or SQLite in a later production step.
+The JSON backend is intended for local development and prototype use. PostgreSQL mode requires the Prisma client to be generated with `npm run db:generate` and the schema to be applied with `npm run db:push`.

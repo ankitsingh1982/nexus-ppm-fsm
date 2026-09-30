@@ -5,9 +5,11 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import crypto from 'crypto';
 import dotenv from 'dotenv';
-import prisma from './prisma.js';
 
 dotenv.config();
+
+const usePrisma = Boolean(process.env.DATABASE_URL);
+const prisma = usePrisma ? (await import('./prisma.js')).default : null;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -59,8 +61,6 @@ const defaultData = {
   apiKeys: [],
   savedViews: [],
 };
-
-const usePrisma = Boolean(process.env.DATABASE_URL);
 
 async function ensureDb() {
   await fs.mkdir(DATA_DIR, { recursive: true });
